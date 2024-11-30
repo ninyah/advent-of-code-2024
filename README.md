@@ -41,4 +41,4 @@ func BenchmarkSolveProblemX(b *testing.B) {
 To benchmark all functions, cd into the internal folder, and run `go test -bench=.`
 Or specify a specific function with `go test -bench=Problem1`
 
-**All function problems must return their answers in a string**
+**Important: All function problems must return their answers in a string**
