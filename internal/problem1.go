@@ -10,10 +10,13 @@ import (
 
 func SolveProblem1() string {
 	// TODO
-	lists := getLists()
+	lists := getListsProblem1()
 	listA := lists[0]
 	listB := lists[1]
-	listBCounts := getCountList(listB)
+	listBCounts := make(map[int]int)
+	for _, number := range listB {
+		listBCounts[number] += 1
+	}
 
 	sort.Ints(listA)
 	sort.Ints(listB)
@@ -32,18 +35,10 @@ func SolveProblem1() string {
 	return fmt.Sprintf("Total Distance: %v\nSimilarity Score: %v", totalDistance, similarityScore)
 }
 
-func getCountList(list []int) map[int]int {
-	counts := make(map[int]int)
-	for _, number := range list {
-		counts[number] += 1
-	}
-	return counts
-}
-
-func getLists() [][]int {
+func getListsProblem1() [][]int {
 	var listA []int
 	var listB []int
-	rawInput := rawInput()
+	rawInput := rawInputProblem1()
 	for _, line := range strings.Split(strings.TrimSuffix(rawInput, "\n"), "\n") {
 		ids := strings.Split(line, "   ")
 		idA, _ := strconv.Atoi(ids[0])
@@ -53,7 +48,7 @@ func getLists() [][]int {
 	}
 	return [][]int{listA, listB}
 }
-func rawInput() string {
+func rawInputProblem1() string {
 	return `80414   72092
 17250   26414
 23063   14603
