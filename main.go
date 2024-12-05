@@ -15,6 +15,7 @@ func main() {
 		internal.SolveProblem1,
 		internal.SolveProblem2,
 		internal.SolveProblem3,
+		internal.SolveProblem4,
 	}
 	problemCount := len(problems) - 1
 
