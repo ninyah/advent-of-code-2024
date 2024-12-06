@@ -17,15 +17,18 @@ func SolveProblem5() string {
 	// Try to make a big chain of all the rules
 	// So that we can just each time find the next matching pageNumber
 	pageOrderingRules := make(map[string][]string)
+	pageOrderingRulesReverse := make(map[string][]string)
 	for _, line := range strings.Split(pageOrderingRulesStr, "\n") {
 		ruleStr := strings.Split(strings.TrimSpace(line), "|")
 		firstPage := ruleStr[0]
 		secondPage := ruleStr[1]
 
 		pageOrderingRules[firstPage] = append(pageOrderingRules[firstPage], secondPage)
+		pageOrderingRulesReverse[secondPage] = append(pageOrderingRulesReverse[secondPage], firstPage)
 	}
 
 	validTotal := 0
+	invalidTotal := 0
 	for _, line := range strings.Split(pagesToProduceStr, "\n") {
 		pagesStr := strings.Split(strings.TrimSpace(line), ",")
 		pagesValid := true
@@ -43,8 +46,23 @@ func SolveProblem5() string {
 			middleNumber, _ := strconv.Atoi(pagesStr[middleIndex])
 
 			validTotal += middleNumber
+		} else {
+			slices.SortFunc(pagesStr, func(firstPage string, secondPage string) int {
+				if slices.Contains(pageOrderingRules[firstPage], secondPage) {
+					return -1
+				} else if slices.Contains(pageOrderingRulesReverse[secondPage], firstPage) {
+					return 1
+				} else {
+					return 0
+				}
+			})
+
+			middleIndex := (len(pagesStr) - 1) / 2
+			middleNumber, _ := strconv.Atoi(pagesStr[middleIndex])
+
+			invalidTotal += middleNumber
 		}
 	}
 
-	return fmt.Sprintf("\nSolution 1: %v\n", validTotal)
+	return fmt.Sprintf("\nSolution 1: %v\nSolution 2: %v", validTotal, invalidTotal)
 }
