@@ -14,8 +14,6 @@ func SolveProblem5() string {
 	pageOrderingRulesStr := strings.TrimSpace(splitRawInputs[0])
 	pagesToProduceStr := strings.TrimSpace(splitRawInputs[1])
 
-	// Try to make a big chain of all the rules
-	// So that we can just each time find the next matching pageNumber
 	pageOrderingRules := make(map[string][]string)
 	pageOrderingRulesReverse := make(map[string][]string)
 	for _, line := range strings.Split(pageOrderingRulesStr, "\n") {
