@@ -16,29 +16,29 @@ So simply run `go run .` to run the latest problem, or specify with an optional 
 
 # How to Add a Problem
 
-- Create your `problemX.go` and `problemX_test.go` files
-- Add into your `problemX.go`
+- Create your `problemX` directory
+- Create your `problemX/problemX.go` and optional `problemX/problemX_test.go` files
+- Add into your `problemX/problemX.go`
 
 ```
-func SolveProblemX() string {
+func Solve() string {
     return "Answer"
 }
 ```
 
-- Add your `SolveProblemX` function call to `main.go` at the end of the problems array
-- Optionally add into a `problemX_test.go`
+- Add your `problemX.Solve` function call to `main.go` at the end of the problems array
+- Optionally add into a `problemX/problemX_test.go`
 
 ```
 func BenchmarkSolveProblemX(b *testing.B) {
-    for n := 0; n < b.N; n++ {
-		internal.SolveProblemX()
+  for n := 0; n < b.N; n++ {
+		problemX.Solve()
 	}
 }
 ```
 
 # Running Benchmarks
 
-To benchmark all functions, cd into the internal folder, and run `go test -bench=.`
-Or specify a specific file with `go test -bench=problem1`
+To benchmark all functions, cd into the `internal/problemX` folder, and run `go test -bench=.`
 
 **Important: All function problems must return their answers in a string**

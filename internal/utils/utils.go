@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"path/filepath"
 )
 
 // Reference: https://stackoverflow.com/questions/33726731/short-way-to-apply-a-function-to-all-elements-in-a-list-in-golang
@@ -26,8 +27,11 @@ func Filter[T any](ss []T, test func(T) bool) (ret []T) {
 }
 
 func GetRawInput(problemNumber int) string {
-	fileName := fmt.Sprintf("internal/problem%v/input.txt", problemNumber)
-	file, err := os.Open(fileName)
+	relativeInput, _ := filepath.Glob("input.txt")
+	directoryInput, _ := filepath.Glob(fmt.Sprintf("internal/problem%v/input.txt", problemNumber))
+	files := append(relativeInput, directoryInput...)
+
+	file, err := os.Open(files[0])
 	if err != nil {
 		fmt.Printf("File error: %v\n", err)
 		return ""
