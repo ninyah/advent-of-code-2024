@@ -26,6 +26,16 @@ func Filter[T any](ss []T, test func(T) bool) (ret []T) {
 	return
 }
 
+func Copy2dArray[T any](ts [][]T) [][]T {
+	tsCopy := make([][]T, len(ts))
+	for i := range ts {
+		tsCopy[i] = make([]T, len(ts[i]))
+		copy(tsCopy[i], ts[i])
+	}
+
+	return tsCopy
+}
+
 func GetRawInput(problemNumber int) string {
 	relativeInput, _ := filepath.Glob("input.txt")
 	directoryInput, _ := filepath.Glob(fmt.Sprintf("internal/problem%v/input.txt", problemNumber))
