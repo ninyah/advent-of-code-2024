@@ -1,13 +1,15 @@
-package internal
+package problem2
 
 import (
 	"fmt"
 	"math"
 	"strconv"
 	"strings"
+
+	"github.com/ninyah/advent-of-code-2024/internal/utils"
 )
 
-func SolveProblem2() string {
+func Solve() string {
 	levels := getLevelsProblem2()
 	safeLevels := 0
 	for _, level := range levels {
@@ -34,7 +36,7 @@ func SolveProblem2() string {
 }
 
 func getLevelsProblem2() [][]int {
-	rawInput := getRawInput(2)
+	rawInput := utils.GetRawInput(2)
 	var allLevels [][]int
 	for _, line := range strings.Split(strings.TrimSuffix(rawInput, "\n"), "\n") {
 		var levels []int

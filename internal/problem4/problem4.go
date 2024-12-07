@@ -1,15 +1,17 @@
-package internal
+package problem4
 
 import (
 	"fmt"
 	"strconv"
 	"strings"
+
+	"github.com/ninyah/advent-of-code-2024/internal/utils"
 )
 
-func SolveProblem4() string {
-	rawInput := getRawInput(4)
+func Solve() string {
+	rawInput := utils.GetRawInput(4)
 	inputLines := strings.Split(rawInput, "\n")
-	inputGrid := Map(inputLines, func(line string) []string { return strings.Split(line, "") })
+	inputGrid := utils.Map(inputLines, func(line string) []string { return strings.Split(line, "") })
 
 	solution1 := solveProblem4Part1(inputGrid, 140, 140)
 	solution2 := solveProblem4Part2(inputGrid, 140, 140)

@@ -1,4 +1,4 @@
-package internal
+package problem1
 
 import (
 	"fmt"
@@ -6,10 +6,11 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+
+	"github.com/ninyah/advent-of-code-2024/internal/utils"
 )
 
-func SolveProblem1() string {
-	// TODO
+func Solve() string {
 	lists := getListsProblem1()
 	listA := lists[0]
 	listB := lists[1]
@@ -38,7 +39,7 @@ func SolveProblem1() string {
 func getListsProblem1() [][]int {
 	var listA []int
 	var listB []int
-	rawInput := getRawInput(1)
+	rawInput := utils.GetRawInput(1)
 	for _, line := range strings.Split(strings.TrimSuffix(rawInput, "\n"), "\n") {
 		ids := strings.Split(line, "   ")
 		idA, _ := strconv.Atoi(ids[0])

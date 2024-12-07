@@ -1,14 +1,16 @@
-package internal
+package problem3
 
 import (
 	"fmt"
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/ninyah/advent-of-code-2024/internal/utils"
 )
 
-func SolveProblem3() string {
-	rawInput := getRawInput(3)
+func Solve() string {
+	rawInput := utils.GetRawInput(3)
 	mulRegex := regexp.MustCompile(`mul\([0-9]{1,3},[0-9]{1,3}\)`)
 
 	mulExpressions := mulRegex.FindAllString(rawInput, -1)

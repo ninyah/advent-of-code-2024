@@ -1,13 +1,13 @@
-package internal_test
+package problem5_test
 
 import (
 	"testing"
 
-	"github.com/ninyah/advent-of-code-2024/internal"
+	"github.com/ninyah/advent-of-code-2024/internal/problem5"
 )
 
 func BenchmarkSolveProblem5(b *testing.B) {
 	for n := 0; n < b.N; n++ {
-		internal.SolveProblem5()
+		problem5.Solve()
 	}
 }

@@ -1,14 +1,16 @@
-package internal
+package problem5
 
 import (
 	"fmt"
 	"slices"
 	"strconv"
 	"strings"
+
+	"github.com/ninyah/advent-of-code-2024/internal/utils"
 )
 
-func SolveProblem5() string {
-	rawInput := getRawInput(5)
+func Solve() string {
+	rawInput := utils.GetRawInput(5)
 	splitRawInputs := strings.Split(rawInput, "\n\r")
 
 	pageOrderingRulesStr := strings.TrimSpace(splitRawInputs[0])

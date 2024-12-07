@@ -4,7 +4,11 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/ninyah/advent-of-code-2024/internal"
+	"github.com/ninyah/advent-of-code-2024/internal/problem1"
+	"github.com/ninyah/advent-of-code-2024/internal/problem2"
+	"github.com/ninyah/advent-of-code-2024/internal/problem3"
+	"github.com/ninyah/advent-of-code-2024/internal/problem4"
+	"github.com/ninyah/advent-of-code-2024/internal/problem5"
 )
 
 func main() {
@@ -12,11 +16,11 @@ func main() {
 	// Because you can't store functions in arrays, we had to use the any type
 	problems := []any{
 		nil,
-		internal.SolveProblem1,
-		internal.SolveProblem2,
-		internal.SolveProblem3,
-		internal.SolveProblem4,
-		internal.SolveProblem5,
+		problem1.Solve,
+		problem2.Solve,
+		problem3.Solve,
+		problem4.Solve,
+		problem5.Solve,
 	}
 	problemCount := len(problems) - 1
 
