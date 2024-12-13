@@ -26,6 +26,13 @@ func Filter[T any](ss []T, test func(T) bool) (ret []T) {
 	return
 }
 
+func CopyArray[T any](ts []T) []T {
+	tsCopy := make([]T, len(ts))
+	copy(tsCopy, ts)
+
+	return tsCopy
+}
+
 func Copy2dArray[T any](ts [][]T) [][]T {
 	tsCopy := make([][]T, len(ts))
 	for i := range ts {
