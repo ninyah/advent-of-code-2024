@@ -1,1 +1,4 @@
 internal/problem*/input.txt
+internal/problem*/problem*.hi
+internal/problem*/problem*.o
+internal/problem*/problem*.exe
