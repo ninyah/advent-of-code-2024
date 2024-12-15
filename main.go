@@ -11,6 +11,7 @@ import (
 	"github.com/ninyah/advent-of-code-2024/internal/problem5"
 	"github.com/ninyah/advent-of-code-2024/internal/problem6"
 	"github.com/ninyah/advent-of-code-2024/internal/problem7"
+	"github.com/ninyah/advent-of-code-2024/internal/problem8"
 )
 
 func main() {
@@ -25,6 +26,7 @@ func main() {
 		problem5.Solve,
 		problem6.Solve,
 		problem7.Solve,
+		problem8.Solve,
 	}
 	problemCount := len(problems) - 1
 
